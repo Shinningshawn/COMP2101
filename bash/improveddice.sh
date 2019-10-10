@@ -28,4 +28,5 @@ echo "Rolled $die1, $die2 for a sum of $sum"
 #calculating and displaying the average of the two dice by add the two values together and dividing the result by two
 echo "the average of the two dice is $(((die1 + die2) / 2 ))"
 
+#an extra bit added just to confirm function by informing us what the variables diceSide and diceOffset was.
 echo "diceside is $diceSide, diceOffset is $diceOffset,"
