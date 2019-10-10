@@ -11,19 +11,19 @@
 
 
 #read with -p to provide a prompt to capture text, some text to explain what the user is being asked for.
-#the input is assigned assigned to the variables called firstnum and secondnum
+#the input is assigned to the variables called firstnum and secondnum
 read -p "input a number :" firstnum
 read -p "input a second number :" secondnum
 
-# a collection of lines performing various calculations using different arithmetic signs
-# + is addition, - is subtractions, / is division (without any remainder), % is modulus (division's remainder), ** is exponent
+# a collection of lines performing various calculations using different arithmetic signs and assigning all the results to various variables
+# + is addition, - is subtractions, / is division (without any remainder), % is modulus (division's remainder only), ** is exponent
 sum=$((firstnum + secondnum))
 difference=$((firstnum - secondnum))
 dividend=$((firstnum / secondnum))
 product=$((firstnum * secondnum))
 modulus=$((firstnum % secondnum))
 powerOf=$((firstnum ** secondnum))
-#
+#This was the line already provided, which provides the results of the long division in decimal format
 fpdividend=$(awk "BEGIN{printf \"%.2f\", $firstnum/$secondnum}")
 
 #each line outputs the assigned variables explaining what math was performed for each result
