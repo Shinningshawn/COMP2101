@@ -16,12 +16,15 @@
 title="Overlord"
 myname="dennis"
 hostname=$USER
+
+#running date formating for Hour:Minute:Second and for the current date and assigning them to their respective variables
 CurrentTime=$(date +%H:%M:%S)
 currentDate=$(date +%A)
 
 ###############
 # Main        #
 ###############
+#adding to the running statement, an extra line to state the current time and date using the two variables
 cat <<EOF
 
 Welcome to planet $hostname, "$title $myname!"
