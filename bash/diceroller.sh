@@ -16,7 +16,7 @@ echo "
  $(( RANDOM % 6 + 1)), $(( RANDOM % 6 + 1 )) rolled
  "
 # Simular to what was performed above, RANDOM is used 5 seperate times to generate a random number for each dice.
-# We run that generated number through the arithmatical formula modulus of 6 (to make the number in the range of a 6 sided die)
+# We run that generated number through the math formula modulus of 6 (to make the number in the range of a 6 sided die)
 # and add 1 to match a dice roll else the remainder is always 0-5 when a dice goes from 1-6
 # this is all run through echo with wording to tell the user the dice rolled values
 echo "
