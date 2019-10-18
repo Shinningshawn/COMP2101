@@ -14,6 +14,8 @@
 
 # Tell the user we have started processing
 echo "Rolling..."
+
+#Task
 #generating a random value with a range of 1-100 and saving it to variable diceSide
 diceSide=$(( RANDOM % 100 + 1))
 #generating a random value with a range of 1-25 and saving it to variable diceOffset

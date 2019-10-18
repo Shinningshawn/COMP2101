@@ -15,6 +15,10 @@
 
 title="Overlord"
 myname="dennis"
+#Task
+#Ran $user to pull the user variable and assigned it to variable called hostname
+#ran the date command with arguements +%H:+%M:+%:%S to pull time in Hh:Mm:Ss format and assigned it to variable CurrentTime
+#ran the date command with arguements +%A to collect the current day's name and saved it to variable currentDate
 hostname=$USER
 CurrentTime=$(date +%H:%M:%S)
 currentDate=$(date +%A)
@@ -23,9 +27,10 @@ currentDate=$(date +%A)
 # Main        #
 ###############
 
+#task
 #difference from the welcome message script, we instead save the lines to variables...
-#the 'error' messages seem to only care about the quotes used around the $title $myname
-#i can remove them but they'll not be present around the 'overlord dennis' part in output
+#the warning messages seem to only care about the quotes used around the $title $myname
+#i can remove them but they'll not be present around the 'overlord dennis' part in output as it origionally started
 #however the script runs w/o issue with or without
 welcome1="Welcome to planet $hostname, '$title $myname!'"
 timedate="The current time is $CurrentTime on a $currentDate"

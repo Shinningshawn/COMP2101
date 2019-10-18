@@ -14,6 +14,7 @@ test -d ~/Pictures || mkdir ~/Pictures
 # download a zipfile of pictures to our Pictures directory if it isn't already there - assumes you are online
 test -f ~/Pictures/pics.zip || wget -q -O ~/Pictures/pics.zip http://zonzorp.net/pics.zip
 
+#Task:
 # test to see if the file pics.tgz is in the directory.
 # if it doesn't exist then we download the file from the site.
 # the file is named pics.tgz and we place it in the specified directory
@@ -22,6 +23,7 @@ test -f ~/Pictures/pics.tgz || wget -q -O ~/Pictures/pics.tgz https://zonzorp.ne
 # unpack the downloaded zipfile if it is there, then delete the local copy of the zipfile
 test -f ~/Pictures/pics.zip && unzip -d ~/Pictures -o -q ~/Pictures/pics.zip && rm ~/Pictures/pics.zip
 
+#Task:
 #test to see if the file pics.tgz is present in the directory
 #tar to extract a tgz file with -x for extract, z for using gzip to extract and f to target a files
 #the target is ~/pics.tgz in ~/Pictures and -C to state our extraction target is ~/pictures/

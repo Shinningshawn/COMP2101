@@ -9,8 +9,8 @@
 # Task: Explain in a comment how the line with the word moose in it works.
 # task answer: the line in question is an echo command as a process line of the error-message function.
 # programName is a variable assigned earlier that uses basename with $0 to fetch the file's name to utilise in the script
-#${1: tells the machine it's looking at the first arguement in the list with the error message attached to it
-#lastly the >&2 says to send all of that output from ${1:message_here} to the same destination as stderr
+# ${1: tells the machine it's looking at the first arguement in the list with the error message attached to it
+#l astly the >&2 says to send all of that output from ${1:message_here} to the same destination as stderr
 # this means that that portion will not print out onto the terminal
 
 #### Variables
@@ -58,8 +58,10 @@ function trap-QUIT { #created the trapquit function to server as the reaction to
 #### Main Program
 
 # Process command line parameters
+
 trap trap-INT SIGINT #created the traps for SIGINT (interupt) and SIGQUIT (quit) specified them to run their respective Functions
 trap trap-QUIT SIGQUIT
+
 while [ $# -gt 0 ]; do
     case $1 in
         -w | --waittime )

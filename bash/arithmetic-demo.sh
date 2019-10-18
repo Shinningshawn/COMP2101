@@ -9,7 +9,7 @@
 #   - first divided by second gives X with a remainder of Y
 # Improve this script by calculating and displaying the first number raised to the power of the second number
 
-
+#Task
 #read with -p to provide a prompt to capture text, some text to explain what the user is being asked for.
 #the input is assigned to the variables called firstnum and secondnum
 read -p "input a number :" firstnum

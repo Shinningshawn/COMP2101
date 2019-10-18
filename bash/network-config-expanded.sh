@@ -63,11 +63,13 @@ EOF
 #####
 # define the interface being summarized
 
-#we change the set variable interfaces to dynamically pull from the results of ls in /sys/class/net which will reveal all available interfaces
-#we run a for loop using val as the variable name and use each section from the list in interfaces
-#We add a portion that runs an if statement testing if $val is equal to lo to check for the loopback interface.
-#all instances of $interface in the rest of the script are replaced with $val and we end the base script with done for the for loop
+# Task
+# we change the set variable interfaces to dynamically pull from the results of ls in /sys/class/net which will reveal all available interfaces
+# we run a for loop using val as the variable name and use each section from the list in interfaces
+# We add a portion that runs an if statement testing if $val is equal to 'lo' which checks for the loopback interface.
+# all instances of $interface in the rest of the script are replaced with $val and we end the base script with done for the for loop
 # because of the done being at the end, this means everything repeats until the loop breaks/finishes which will be when every interface is listed
+
 interface=$(ls /sys/class/net)
   for val in $interface; do
       if [ $val == 'lo' ] ; then
@@ -76,10 +78,12 @@ interface=$(ls /sys/class/net)
 
 # Find an address and hostname for the interface being summarized
 # we are assuming there is only one IPV4 address assigned to this interface
+
 ipv4_address=$(ip a s $val|awk -F '[/ ]+' '/inet /{print $3}')
 ipv4_hostname=$(getent hosts $ipv4_address | awk '{print $2}')
 
 # Identify the network number for this interface and its name if it has one
+
 network_address=$(ip route list dev $val scope link|cut -d ' ' -f 1)
 network_number=$(cut -d / -f 1 <<<"$network_address")
 network_name=$(getent networks $network_number|awk '{print $1}')

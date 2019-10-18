@@ -38,25 +38,32 @@ LAN_Address=$(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gs
 LAN_Hostname=$(getent hosts $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}'))|awk '/inet /{gsub(/\/.*/,"");print $2}' | awk '{print $2}')
 External_IP=$(curl -s icanhazip.com)
 External_Name=$(getent hosts $(curl -s icanhazip.com) | awk '{print $2}')
+
+#Task
 #honestly speaking, it took me longer then i should have figuring out a: what exactly was asked and b: how to do that with commands
 #then i realize that part of the next lab achieves the same thing and more in a more clean and efficient way.
 #ip route to show routing table, show default to show the route called default. we then pipe the output into cut with -d for a delimiter.
 #delimiter meaning to search for values between the specified values, in this case an empty space and -f meaning which field to show, selecting the 3rd field
-#everything after the | was thanks to the next lab, my attempt was utilising awk for the default line and attempt to sort the ip out unsuccessfully
+#everything after the | was thanks to the next lab, my attempt was utilising awk for the default line and attempt to sort the ip out
+
 Router_IP=$(ip route show default| cut -d ' ' -f 3)
+
 #this part also thanks to the next lab, i didn't even think of using the previous variable to find the name in my host file.
 #we're using getent to collect info from the file hosts which pulls the data matching the specified search pattern from /etc/hosts
 #we pipe that through awk to print only the second section which contains the inputed name which for a while i didn't realise i had to manually add
+
 Router_Name=$(getent hosts $Router_IP|awk '{print $2}')
+
 #at this point i'm half lost as to if i'm overthinking things or just unable to figure out what's going on
-#it seems like we're supposed to fetch info from the /hosts and /networks file but we're adding that info in since they seemed to be missing
+#it sounds like we're supposed to fetch info from the /hosts and /networks file but we're adding that info in since they seemed to be missing
 #i'm utilising getent to pull the line with the matching value network from networks file and using awk to print the second part to pull the number
 #since i couldn't figure out how to pull the network number w/o the name giving the changes between GC and home, so i used the name to pull the number
 #the number is utilised to pull the name similar to finding the routername except we look at the first part instead of the second
+
 Network_Number=$(getent networks network|awk '{print $2}')
 Network_Name=$(getent networks $Network_Number| cut -d ' ' -f 1)
 
-#this part simply adds the newly added portions that was asked to find/show
+#this part simply adds the newly added portions that was asked to find/show, keeping to the same format that was present to start with
 cat <<EOF
 "Hostname       : $Hostname"
 "LAN Address    : $LAN_Address"

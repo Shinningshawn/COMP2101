@@ -10,6 +10,9 @@
 
 
 #assign the referenceString (the password the user is trying to guess) and userGuesses (to keep track of user's attempt count)
+
+#TASK
+#added a userGuesses variable to set a value before performing the while loop
 referenceString="password"
 userGuesses=0
 
@@ -34,14 +37,16 @@ while [ $userGuesses != 3 ]
         echo "incorrect, that was guess $userGuesses/3 attempts..."
 
         #an if statement in the incorrect section to check if their guesscount is equal to 3
-        #a return of 3 means that they have hit their limit, informing them and finishing the if statement and subsequently the while loop
+        #a return of true means that they have hit their limit, informing them of this before finishing the if statement and subsequently the while loop
         if [ $userGuesses = 3 ]
           then
             echo "The password eludes you..."
           fi
       fi
+  done
   #done to denote the end of the while loop's content, with nothing else beyond this, the script has reached it's end and finishes without utilising exit
   #both successful and unseccessful finish by reaching the end of the script rather then using exit
+
+  #extra note
   #the ammount of times i've messed this up because my brain keeps going into 2nd semester python language mode is insane, but the structure and format was similar to what I used in python
   #hopefully this is acceptable, however i suspect there is a way easier method to achieving this requirement
-  done
